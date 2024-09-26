@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           margin-top: 100px;
+        }
+        #cal{
+            height: 400px;
+            width: 330px;
+            background-color: gray;
+            border-radius: 15px;
+
+        }
+        button{
+            height: 60px;
+            width: 64px;
+            border-radius: 10px;
+            box-shadow: 2px 3px 10px;
+            margin-left: 10px;
+
+        }
+        button:hover{
+            background-color: transparent;
+        }
+        #display{
+            height: 40px;
+            width: 300px;
+            background-color: white;
+            margin: 20px;
+            margin-left: 10px;
+            border-radius: 10px;
+            box-shadow: 1px 2px 5px;
+            font-weight: 600;
+            font-size: 25px;
+            text-align: right;
+        }
+        #equal{
+            width: 42%;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="cal">
+            <div id="calculator">
+                <input id="display" readonly /></div>
+            <!-- <div id="screen" onclick="result()"></div> -->
+            <button  onclick="cleardisplay()">AC</button>
+            <button onclick="bhannu('DE')">DE</button>
+            <button  onclick="addvalue('%')">%</button>
+            <button  onclick="addvalue('/')">/</button>
+            <button  onclick="addvalue('7')">7</button>
+            <button  onclick="addvalue('8')">8</button>
+            <button onclick="addvalue('9')">9</button>
+            <button  onclick="addvalue('*')">*</button>
+            <button  onclick="addvalue('4')">4</button>
+            <button onclick="addvalue('5')">5</button>
+            <button  onclick="addvalue('6')">6</button>
+            <button  onclick="addvalue('-')">-</button>
+            <button  onclick="addvalue('1')">1</button>
+            <button   onclick="addvalue('2')">2</button>
+            <button   onclick="addvalue('3')">3</button>
+            <button   onclick="addvalue('+')">+</button>
+            <button   onclick="addvalue('0')">0</button>
+            <button   onclick="addvalue('.')">.</button>
+            <button id="equal"  onclick="bharadwaj()">=</button>
+        </div>
+    </div>
+    <script>
+      
+      let equal=document.getElementById("equal");
+      let display=document.getElementById("display");
+
+    function addvalue(input) {
+        display.value += input;
+      }
+      function bharadwaj () {
+        try{
+            display.value=eval( display.value);
+        }
+        catch{
+            display.value="error"
+        }
+
+      }
+      function cleardisplay() {
+        display.value = "";
+      }
+      function bhannu(){
+        display.value= display.value.slice(0,-1);
+      }
+
+    </script>
+</body>
+</html>
